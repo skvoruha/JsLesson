@@ -1,8 +1,8 @@
 'use strict';
 
-const a = 10;
+// const a = 10;
 
-console.log(a);
+// console.log(a);
 
 // let answer = prompt("Тебе есть 18 лет ?", "18 лет");
 // console.log(answer);
