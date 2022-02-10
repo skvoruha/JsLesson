@@ -1,141 +1,77 @@
-'use strict';
+// const title = document.getElementById('title')
 
-const a = 10;
+// title.textContent =  "DOM!"
 
-console.log(a);
+// console.dir(title.style.backgroundColor = "green");
+// данные методы возвращают элементы, в  массив
+// const listItem = document.getElementsByTagName('header')
+// const links = document.getElementsByClassName('links')
 
-// let answer = prompt("Тебе есть 18 лет ?", "18 лет");
-// console.log(answer);
+// console.log(listItem);
 
-// console.log(5 + '5');
+// const title1 =  document.querySelector('h1')
+// const title2 =  document.querySelector('.title')
+// // образение по атрибутуу
+// const title3 =  document.querySelector('[title="Document Object Model"]')
+// const title4 = document.querySelector('.link')
+// const links = document.querySelectorAll('.link')
 
-// console.log(5 - '5');
-// console.log(5 * '5');
-// console.log(5 / '5ty');
-
-// console.log(5 == '5');
-// console.log(5 === '5');
-
-// console.log(typeof String(true));
-// console.log(typeof String(undefined));
-// console.log(typeof String(null));
-// console.log(typeof String("123"));
-// console.log(typeof String(123));
-
-// console.log(Number(true));
-// console.log(Number(false));
-// console.log(Number(undefined));
-// console.log(Number(null));
-// console.log(Number("123"));
-// console.log(Number("123dfs"));
-// console.log(Number(123));
+// console.log(title1);
+// console.log(title2);
+// console.log(title3);
+// console.log(title4);
+// links.forEach(function(item){
+//    console.log(item);
+// });
 
 
-// console.log(Boolean(""));
-// console.log(Boolean(undefined));
-// console.log(Boolean(null));
-// console.log(Boolean(NaN));
-// console.log(Boolean(false));
+// const title =  document.getElementById('title')
+// // образение по атрибутуу
 
-// let a = 10;
-
-// console.log(Boolean(!!5));
-// console.log(10 + '');
-// console.log(a.toString());
-
-// console.log(+"10c");
-// console.log(+"10");
-
-// let str = +prompt("Cколько тебе лет?");
-// let result = str + 10;
-
-// console.log(result);
+// const listItem = document.getElementsByTagName('li')
+// const links = document.getElementsByClassName('link')
 
 
-// let str = prompt("Cколько тебе лет?");
+// const list = document.querySelector('header > ul')
+// const listItems2 = list.querySelectorAll('li')
 
-// console.log(parseInt(str));
-
-// console.log(parseInt('11111', 2));
-
-// if (true) console.log(' Истина');
-// if (false) console.log(' Ложь');
-
-// let n =14;
-
-// if (n == 11) {
-//   console.log(' Команда 1');
-//   console.log(' Команда 2');
-//   console.log(' Команда 3');
-// } else if (n == 12) {
-//   console.log(' Команда 3');
-//   console.log(' Команда 4');
-//   console.log(' Команда 5');
-// } else if (n == 13) {
-//   console.log(' Команда 6');
-//   console.log(' Команда 7');
-//   console.log(' Команда 8');
-// } else  {
-//   console.log(' Команда 9');
-//   console.log(' Команда 10');
-//   console.log(' Команда 11');
-// }
-// let n = 12;
-// switch (n) {
-//   case 3:
-//     console.log(3);
-//     break;
-//   case 4:
-//     console.log(4);
-//     break;
-//   case 10:
-//     console.log(10);
-//     break;
-//   case 11:
-//   case 12:
-//       console.log(11);
-//     break;
-//   default:
-//     console.log(' Не верно ни одно значение');
-// }
-// const n = +prompt(' Введите число : ');
-
-// switch (n) {
-  //   case 3:
-  //     console.log(3);
-  //     break;
-  //   case 4:
-  //     console.log(4);
-  //     break;
-  //   case 10:
-  //     console.log(10);
-  //     break;
-  //   case 11:
-  //   case 12:
-  //       console.log(11);
-  //     break;
-  //   default:
-  //     console.log(' Не верно ни одно значение');
-  // }
-
-//   const n = +prompt(' Введите число : ');
+// console.log(listItems2);
 
 
-// switch (true) {
-//   case 5 < n && n < 10:
-//     console.log('n > 10');
-//     break;
-//   default:
-//       console.log(' Не верно ни одно значение');
-// }
+// const title =  document.getElementById('title')
+// // добавлчем класс green-color'
+// title.classList.add('green-color')
+// // удаляем классс
+// title.classList.remove('title')
+// // метод toggle включать выключатель
+// title.classList.toggle('title')
 
-// const n = +prompt(' Введите число : ');
-
-// let result = n === 10 ? 1 : 2
-// console.log(result);
+// // метод contains возвращет либо true либо false
+// console.log(title.classList.contains('title'));
 
 
-// const n = +prompt(' Введите число : ');
+// console.log(title);
 
-// n === 10 ? console.log(" верно") : console.log(" не верно");;
 
+// const title =  document.getElementById('title')
+// // получаем значение атрибута
+// console.log(title.getAttribute('title'));
+// // переопредение атрибута id class
+// title.setAttribute('title', 'new value title');
+// console.log(title.getAttribute('title'));
+// // проверяет есть ли атрибут или нет hasAttribute
+// console.log(title.hasAttribute('title'));
+
+// console.dir(title);
+
+
+const title =  document.getElementById('title')
+
+title.style.backgroundColor = 'red'
+// передаемм в getComputedStyle элемент в котором хотим увидить стили
+// мы можем прочитать свойство
+// console.dir(getComputedStyle(title));
+console.dir(getComputedStyle(title).backgroundColor);
+console.dir(getComputedStyle(title).fontSize);
+
+console.dir(title);
