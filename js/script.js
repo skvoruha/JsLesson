@@ -1,77 +1,98 @@
-// const title = document.getElementById('title')
-
-// title.textContent =  "DOM!"
-
-// console.dir(title.style.backgroundColor = "green");
-// данные методы возвращают элементы, в  массив
-// const listItem = document.getElementsByTagName('header')
-// const links = document.getElementsByClassName('links')
-
-// console.log(listItem);
-
-// const title1 =  document.querySelector('h1')
-// const title2 =  document.querySelector('.title')
-// // образение по атрибутуу
-// const title3 =  document.querySelector('[title="Document Object Model"]')
-// const title4 = document.querySelector('.link')
-// const links = document.querySelectorAll('.link')
-
-// console.log(title1);
-// console.log(title2);
-// console.log(title3);
-// console.log(title4);
-// links.forEach(function(item){
-//    console.log(item);
-// });
+// const lists = document.querySelectorAll('.list')
+// const elems = document.querySelectorAll('.elem')
 
 
-// const title =  document.getElementById('title')
-// // образение по атрибутуу
+// console.log(lists);
+// console.log(elems);
 
-// const listItem = document.getElementsByTagName('li')
-// const links = document.getElementsByClassName('link')
+// elems[2].remove()
+// elems[4].remove()
 
+// // сохраняет элемент в конце списка
+// lists[1].append(elems[2])
+// lists[1].append(elems[4])
+// lists[1].append(elems[3])
+// // сохраняет элемент в начале списка
+// lists[1].prepend(elems[5])
 
-// const list = document.querySelector('header > ul')
-// const listItems2 = list.querySelectorAll('li')
+// // переставть перед первым списком список номер два
+// lists[0].before(lists[1])
 
-// console.log(listItems2);
+// elems[3].before(elems[0])
+// // ставит после елемента заданный элемент
+// elems[3].after(elems[0])
 
+// // заменяет один элемент другим
+// elems[4].replaceWith("привет номер 4")
+// // В ЛЮБЫЕ МЕТОДЫ М  МОЖЕМ ПЕРЕДАТЬ СТРОКУ
+// // клонирвование 'элементов'
+// // в константе лежит не копич элемена 3 а ссылка на него на странице
+// const cloneElem = elems[3]
+// // чтобы поулчать не сслку а сам элемент ? чтобы поулчить все элементы нужно передать занчение true
+// const cloneElemTwo = elems[3].cloneNode(true)
 
-// const title =  document.getElementById('title')
-// // добавлчем класс green-color'
-// title.classList.add('green-color')
-// // удаляем классс
-// title.classList.remove('title')
-// // метод toggle включать выключатель
-// title.classList.toggle('title')
+// console.log(cloneElem);
+// console.log(cloneElemTwo);
+// //  добавляем касс элементу
+// cloneElemTwo.classList.add("greeen-color")
+// // изменяем контетнт элемента
+// // textContent менят менно текст контетнта а innerHTML заменяет теги если есть в конететнте
+// cloneElemTwo.innerHTML = "<strong> stepp 66 </strong> "
+// lists[1].append(cloneElemTwo)
 
-// // метод contains возвращет либо true либо false
-// console.log(title.classList.contains('title'));
+// const lists = document.querySelectorAll('.list')
+// const elems = document.querySelectorAll('.elem')
 
+// console.log(lists);
+// console.log(elems);
 
-// console.log(title);
+// // Создали новый элемент
+// const newElem = document.createElement('li')
+// newElem.textContent = 'new step 9'
+// newElem.classList.add('elem')
 
+// lists[0].append(newElem)
 
-// const title =  document.getElementById('title')
-// // получаем значение атрибута
-// console.log(title.getAttribute('title'));
-// // переопредение атрибута id class
-// title.setAttribute('title', 'new value title');
-// console.log(title.getAttribute('title'));
-// // проверяет есть ли атрибут или нет hasAttribute
-// console.log(title.hasAttribute('title'));
+// console.log(newElem);
 
-// console.dir(title);
+const lists = document.querySelectorAll('.list')
+const elems = document.querySelectorAll('.elem')
+const title = document.getElementById('title')
 
+// // даанный метод получает 1ым аргументом одну настройку а 2ым текст
+// title.insertAdjacentText('beforebegin','beforebegin')
+// title.insertAdjacentText('afterend','afterend')
+// // вставляет текст после заголовка title
 
-const title =  document.getElementById('title')
+// // beforeend вставляет справа, контент после основного текста контетнт
+// title.insertAdjacentText('beforeend',' beforeend')
+// // afterbegin вставляет слева, контент после основного текста контетнт
+// title.insertAdjacentText('afterbegin','afterbegin ')
 
-title.style.backgroundColor = 'red'
-// передаемм в getComputedStyle элемент в котором хотим увидить стили
-// мы можем прочитать свойство
-// console.dir(getComputedStyle(title));
-console.dir(getComputedStyle(title).backgroundColor);
-console.dir(getComputedStyle(title).fontSize);
+//  тут мы передали элемент
+// title.insertAdjacentElement('beforebegin', elems[0])
+// title.insertAdjacentElement('afterend', elems[1])
+// title.insertAdjacentElement('beforeend', elems[2])
+// title.insertAdjacentElement('afterbegin', elems[3])
 
-console.dir(title);
+//  тут предаём куски вёрстки в
+// title.insertAdjacentHTML('beforebegin', '<span>step 0 </step>')
+// title.insertAdjacentHTML('afterend', '<span>step 1 </step>')
+// title.insertAdjacentHTML('beforeend', '<span>step 2 </step>')
+// title.insertAdjacentHTML('afterbegin', '<span>step 3 </step>')
+
+// СТАРЫЕ МЕТОДЫ
+// lists.append(elems[4], elems[2],elems[3])
+// // appendChild ПРИНИМАЕТ ТОЬКО ОДИН ЭЛЕМЕНТ И ТЕМ ОН ХУЖЕ append
+// //  мы не можем передатьпросту строку в append можно и он вывведет а  appendChild нет
+// // н возвращет тот элемент который он и обработал
+lists[1].appendChild(elems[5])
+
+// в ё ый аргумент передаёт тот элемент которйы мбудем перемещать а второй который мы вставим первый аргумент
+lists[1].insertBefore(elems[5] ,elems[1])  // before удобнее
+
+lists[1].replaceChild(elems[5]) // remove
+
+lists[1].removeChild(elems[5])  // remove
+
+console.log(title);
