@@ -1,141 +1,106 @@
-'use strict';
+// cookie практика
+// общаемся к объеккту localStorage
+// можно так и так
+// localStorage['name'] = 'Alex'
+// localStorage.name = 'Alex'
 
-const a = 10;
+// console.log(localStorage.name);
 
-console.log(a);
+// // передаём два аргумента одно из них название ключа а второй само значние
+// localStorage.setItem('name','Grisha')
 
-// let answer = prompt("Тебе есть 18 лет ?", "18 лет");
-// console.log(answer);
+// // getItem передаёт только один аргумент
+// console.log(localStorage.getItem('name'));
+// // удаяем данный ключ
+// // localStorage.removeItem('name')
 
-// console.log(5 + '5');
-
-// console.log(5 - '5');
-// console.log(5 * '5');
-// console.log(5 / '5ty');
-
-// console.log(5 == '5');
-// console.log(5 === '5');
-
-// console.log(typeof String(true));
-// console.log(typeof String(undefined));
-// console.log(typeof String(null));
-// console.log(typeof String("123"));
-// console.log(typeof String(123));
-
-// console.log(Number(true));
-// console.log(Number(false));
-// console.log(Number(undefined));
-// console.log(Number(null));
-// console.log(Number("123"));
-// console.log(Number("123dfs"));
-// console.log(Number(123));
+// // данный метод чистит все свойства объёета localStorage
+// localStorage.clear()
 
 
-// console.log(Boolean(""));
-// console.log(Boolean(undefined));
-// console.log(Boolean(null));
-// console.log(Boolean(NaN));
-// console.log(Boolean(false));
+// console.log(localStorage.getItem('name'));
 
-// let a = 10;
+// const input = document.getElementById('input')
+// const btnSave = document.getElementById('btn_save')
+// const btnRemove = document.getElementById('btn_remove')
+// const text = document.getElementById('text')
 
-// console.log(Boolean(!!5));
-// console.log(10 + '');
-// console.log(a.toString());
-
-// console.log(+"10c");
-// console.log(+"10");
-
-// let str = +prompt("Cколько тебе лет?");
-// let result = str + 10;
-
-// console.log(result);
-
-
-// let str = prompt("Cколько тебе лет?");
-
-// console.log(parseInt(str));
-
-// console.log(parseInt('11111', 2));
-
-// if (true) console.log(' Истина');
-// if (false) console.log(' Ложь');
-
-// let n =14;
-
-// if (n == 11) {
-//   console.log(' Команда 1');
-//   console.log(' Команда 2');
-//   console.log(' Команда 3');
-// } else if (n == 12) {
-//   console.log(' Команда 3');
-//   console.log(' Команда 4');
-//   console.log(' Команда 5');
-// } else if (n == 13) {
-//   console.log(' Команда 6');
-//   console.log(' Команда 7');
-//   console.log(' Команда 8');
-// } else  {
-//   console.log(' Команда 9');
-//   console.log(' Команда 10');
-//   console.log(' Команда 11');
-// }
-// let n = 12;
-// switch (n) {
-//   case 3:
-//     console.log(3);
-//     break;
-//   case 4:
-//     console.log(4);
-//     break;
-//   case 10:
-//     console.log(10);
-//     break;
-//   case 11:
-//   case 12:
-//       console.log(11);
-//     break;
-//   default:
-//     console.log(' Не верно ни одно значение');
-// }
-// const n = +prompt(' Введите число : ');
-
-// switch (n) {
-  //   case 3:
-  //     console.log(3);
-  //     break;
-  //   case 4:
-  //     console.log(4);
-  //     break;
-  //   case 10:
-  //     console.log(10);
-  //     break;
-  //   case 11:
-  //   case 12:
-  //       console.log(11);
-  //     break;
-  //   default:
-  //     console.log(' Не верно ни одно значение');
-  // }
-
-//   const n = +prompt(' Введите число : ');
-
-
-// switch (true) {
-//   case 5 < n && n < 10:
-//     console.log('n > 10');
-//     break;
-//   default:
-//       console.log(' Не верно ни одно значение');
+// // напише функцию которая будт менять текст параграфа
+// const showText = function(){
+//   // передаём в парагрф из  localStorage зачние
+//   text.textContent = localStorage.getItem('text')
 // }
 
-// const n = +prompt(' Введите число : ');
+// btnSave.addEventListener('click', function(){
+//   // Записывваем по ключу text , занчение с инпута в localStorage
+//   localStorage.setItem('text',input.value)
+// })
+// showText()
 
-// let result = n === 10 ? 1 : 2
-// console.log(result);
+
+// const input = document.getElementById('input')
+// const btnSave = document.getElementById('btn_save')
+// const btnRemove = document.getElementById('btn_remove')
+// const text = document.getElementById('text')
+
+// // напише функцию которая будт менять текст параграфа
+// const showText = function(){
+//   // передаём в парагрф из  localStorage зачние
+//   text.textContent = sessionStorage.getItem('text')
+// }
+
+// btnSave.addEventListener('click', function(){
+//   // Записывваем по ключу text , занчение с инпута в localStorage
+//   sessionStorage.setItem('text',input.value)
+//   // dspjdtv функцию чтобы текст обноваляся после его обновления
+//   showText()
+// })
+
+// btnRemove.addEventListener('click',function(){
+//   // Очищаем полность при нажати кнопки sessionStorage  localStorage
+//   localStorage.clear()
+//   sessionStorage.clear()
+//   showText()
+//   console.log('rrr');
+// })
+
+// showText()
+// localStorage 10МБ очень часто приходстя сохранять информаию , лучше всего для корзины
+// localStorage сохраняет пока ен удалим эти данные пка их не очистим
+// sessionStorage 5МБ хранит пока не закрыли вкладку
+
+// console.log(input);
+// console.log(btnSave);
+// console.log(btnRemove);
+// console.log(text);
+
+// cookie
+// в куки так созранятеся информция
+// Вторым параеметом max-age=3600 указывается время жихни куки в сек
+// document.cookie = 'name=Alex; max-age=3600'
 
 
-// const n = +prompt(' Введите число : ');
+// просто создаём дату
+// let date = new Date()
 
-// n === 10 ? console.log(" верно") : console.log(" не верно");;
+// // кастоманая дата
+// // мы передпл свою. дату  месяа начинаются с 0 поэьому март
+// let date = new Date(2045,02,22,13,20,0)
 
+// // console.log(date);
+// // чтобы перевести дату в нормальный формат без учета
+// // GMT +3 Московсок время нужно
+// // toUTCString убирает +3 часа на часовой пояс
+// console.log(date.toUTCString());
+
+// // expires принимает вот такое значение кукуа будет существовать до
+// document.cookie = 'name=Alex; expires='+ date.toUTCString()
+
+// // чтобы сохрнаить оьъект в куки
+// // вмеситтмоть куки 4 кб
+// const user = {
+//   name: 'Alex',
+//   city: 'Minsk'
+// }
+// // stringify переводт объект в строку
+// document.cookie = 'user=' + JSON.stringify(user)
