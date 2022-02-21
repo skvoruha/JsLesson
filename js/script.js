@@ -1,213 +1,204 @@
-// const one = function(){
-//   // debugger дебагер это установк для оставновки определнного функционала
-
-//   console.log('start 1');
-//   two()
-
-//   console.log('end 1');
-// }
-
-// const two = function(){
-
-//   console.log('start 2');
-//   three()
-
-//   console.log('end 2');
-// }
-
-// const three = function(){
-//   console.log('run 3');
-// }
-// // всё равно он сначла выполнит функцию в стеке
-// // а потмо уже начнёт выполнять setTimeout(three, 0)
-// // setTimeout(three, 0)
-// one()
-
-// // отложенный вызов функции
-// // setTimeout сам вызовает функцию поэтому не надо ставить после него круглые скоюки
-// // setTimeout(three, 2000)
-
-
-
-// КОНТЕКСТ ВЫЗОВА THIS
-// Это всего ишь ссылка на объект на каотором он вызван
+// ООП JS
+// ООП это методика организации программы
+// главная мысль его это структурирование кода
+// протоип это скрытаяя ссылка объекта
 'use strict'
 
-// const one = function(){
-//   console.log(this);
-// }
-// one()
+// let arr = [1,2,3,4,5]
 
-// const user1 = {
-//   name: 'Alex',
-//   say: function(){
-//     console.log(this.name);
+// console.log(arr);
+// // метод join htplktnb наши элменты на запятые с проблом как ниже
+// console.log(arr.join(', '));
+// // toString это прототип метода [[Prototype]]: Array(0) ---> [[Prototype]]: Object -->toString
+// // он выведет протсо в строку значение массива
+// console.log(arr.toString());
+// // обращение к прототипу
+// // в консоль выйдет прототип нашего массива
+// console.log(arr.__proto__);
+// // выведем протоип контурктора массива в коносль
+// console.log(Array.prototype);
+// // сравние данных прототипов
+// console.log(arr.__proto__ == Array.prototype);
+
+
+// НАПИШЕМ ОБЪЕКТ ОБСТРАКЦИЮ ОБЪЕКТА ЧЕЛОВЕКА
+// const man = {
+//     hands:2,
+//     lags:2,
+//     eyes:2,
+//     walk: function(){
+//         console.log('Я хожу');
+//     },
+//     talk: function(){
+//         console.log('Я говорю');
+//     }
+// }
+// // создаим новый объект на основе объекта man
+// const newMan = Object.create(man)
+// // создадим еще один объект
+// const newWoman = Object.create(man)
+// // даный объект облдает всеми методоами и переменный которые были в том объекте
+// // newMan.walk()
+// // newMan.talk()
+
+// // Добавим новые переменный в объект
+// newMan.name = 'Ivan'
+// newMan.age = 23
+
+
+// // Добавим новые переменный в объект
+// newWoman.name = 'Sasha'
+// newWoman.age = 17
+
+
+// console.log(newMan);
+// console.log(newWoman);
+
+
+
+// // ПРИМЕР С ДОЛЖНОСТЯМИ
+// const worker = {
+//     worplace: 1,
+//     dinner: 1,
+//     goToWork:function(){
+//         console.log('Иду на работу');
+//     },
+//     leaveToWork:function(){
+//         console.log('Ухлжу с работы');
+//     },
+//     work:function(){
+//         console.log('работаю');
+//     },
+//     // Метод скажи е првиет но ткже использует this.name);
+//     sayHellow: function () {
+//         console.log("Привет/ Меня зовут " + this.name);
+//     }
+// }
+
+// const frontEndDev = Object.create(worker)
+// const backEndDev = Object.create(worker)
+// //  у всего подраздение фронтенд м ы увеличи число обедов  dinner до 2
+// frontEndDev.dinner = 2
+
+// frontEndDev.role = "Front End Developer"
+// backEndDev.role = "Back End Developer"
+// // преопределяем метод которй уже был в базовом протоипе
+// frontEndDev.work = function () {
+//     console.log(' Пишу качественый фронтенд, пью чай');
 //   }
-// }
-// const user2 = {
-//   name: 'Oleg',
-//   say: function(){
-//     console.log(this.name);
-//   }
+// backEndDev.work = function () {
+//     console.log(' Муюабс с бд дайте выходной');
 // }
 
-// user1.say()
-// user2.say()
+
+// frontEndDev.work()
+// backEndDev.work()
+
+// console.log(frontEndDev);
+// console.log(backEndDev);
+
+// const developer1 = Object.create(frontEndDev)
+// const developer2 = Object.create(frontEndDev)
+// const developer3 = Object.create(backEndDev)
+// const developer4 = Object.create(backEndDev)
+
+// developer1.name = 'alex'
+// developer2.name = 'oleg'
+// developer3.name = 'misha'
+// developer4.name = 'artem'
+
+// developer1.sayHellow()
+// developer2.sayHellow()
+// developer3.sayHellow()
+// developer4.sayHellow()
+
+// // console.log(developer1.dinner);
+// // console.log(developer2.dinner);
+// // console.log(developer3.dinner);
+// // console.log(developer4.dinner);
+
+// // Методы для объектов
+// // hasOwnProperty
+// // в данный метод мы предеаим название свойства котрй мы ъотимпроверить
+// //  возрващет булевое значние
+// //  hasOwnProperty игнорирует прототип
+// console.log(developer1.hasOwnProperty('name'));
+// // чтобы достать протоип нужно нужно обрактиться,  к нему
+// console.log(developer1.__proto__.hasOwnProperty('role'));
+// // чтобы получить протоип еще глубдже нужно еще раз вести __proto__
+// console.log(developer1.__proto__.__proto__.hasOwnProperty('worplace'));
+
+// // проверяет является ли прототипои frontEndDev для объекта (developer3)
+// console.log(frontEndDev.isPrototypeOf(developer3));
 
 
 
-// const user1 = {
-//   name: 'Alex',
-//   say: say
-// }
-// const user2 = {
-//   name: 'Oleg',
-//   say: say
-// }
-
-// function say(a,b){
-//     console.log(this.name);
-//     console.log(a + b);
-// }
-
-// user1.say()
-// user2.say()
-
-// // Если вызвать пустую функцию то будет ошибка
-// // но если мы укажем функции черезе call или apply объект то он вызовет
-// // Также мы можем передавать аргументы в функцию
-// say.call(user1, 1 ,2)
-// // apply принимает 1 аргумент в виде, массива
-// say.apply(user2, [3,5])
-// // Методы dspddf.n функцию
-
-// const user1 = {
-//   name: 'Alex',
-//   say: say
-// }
-// const user2 = {
-//   name: 'Oleg',
-//   say: say
-// }
-
-// function say(){
-//     console.log(this.name);
-// }
-// // Мы вызовем ункцию say в newSay , н о с помощью метода bind она уже знает контекст вызова
-// const newSay = say.bind(user1)
-// const newSay1 = say.bind(user2)
-
-// newSay()
-// newSay1()
-
-// Контектс вызова это всегда ссылка на объект
-// контекст вызова всегда формируется в момент вызова
-// контекст вызова может быть привязан к конкретному объекту 3 способоами
-// или произойдёт не явная привязка самим js
-
-// const btns = document.querySelectorAll('button')
-
-// const user = {
-//   name: 'Alex',
-//   say: function (){
-//     console.log(this);
-//   }
-// }
-
-// console.log(btns);
-
-// btns.forEach(function(btn){
-//   // тут он вызовет не объект с именем alex а саму кнопку
-
-//   // btn.addEventListener('click', user.say)
-//   btn.onclick = user.say
-//   console.log(btn);
-// })
-
-
-// const btns = document.querySelectorAll('button')
-
-// const changeColorBorder = function(){
-//   btns.forEach(function(btn){
-//     btn.style.border = '1px solid black'
-//   })
-//   this.style.border = '2px solid red'
-// }
-
-// btns.forEach(function(btn){
-//   btn.addEventListener('click', changeColorBorder)
-// })
-
-
-
-// const btns = document.querySelectorAll('button')
-
-// const changeColorBorder = function(event){
-//   btns.forEach(function(btn){
-//     btn.style.border = '1px solid black'
-//   })
-//   event.target.style.border = '2px solid red'
-// }
-
-// btns.forEach(function(btn){
-//   btn.addEventListener('click', changeColorBorder)
-// })
-
-
-// const user = {
-//   name: 'ALex',
-//   say: function(){
-//     console.log(this);
-//   }
-// }
-
-// // А что если мы запустим функцию чере settimout
-// // то мы получим пустую строку
-// // setTimeout(user.say, 2000);
-
-// // Для того чтобы не получать пустую строку то дучше всего написат анаонминую фннкцию
-// //, в консоли мы увдими нашу имя Alex
-// setTimeout(function(){
-//   user.say()
-// }, 500);
-
-
-
-// // СТРЕЛОЧНАЯ ФУНКЦИЯ
-// //  =>  Такая стрелока заменят слово function
-// // более коротокая форма записи
-// const counter = (a,b) => {
-//   return a+b
-// }
-// // также мы можем убрать скобки и она все равно будет возвращать щначение
-// const counter2 = (a,b) => a*b
-
-// // также если функция, принимает 1 параметр то мы можем избавить и от курглых скобок
-// const counter3 = a => a + 7
-// // нюанс таких функци в том что у них отстусвует КОНТЕСТ ВЫЗОВА
-// console.log(counter(3,4));
-// console.log(counter2(3,4));
-// console.log(counter3(7));
-
-
-// const obj = {
-//  array:[1,3,4,5],
-//  someFunc: function(){
-//    console.log(this);
-//   //  Чтобы вернуть контест вызова мы можем использовать стрелочную функцию
-//    this.array.forEach((item) =>{
-//         console.log(this);
-//         console.log(item);
-//    })
+// ФУНКЦИЯ КОНСТРУКТОР -- этто абсолютно любая функция которая используетя оператр new
+//  va один раз опишем её, на её основе склко захотим стольок и вызовем раз
+// const Person = function (name) {
+//     // контект вызова
+//     this.name = name
+//     // на самом деле возвращется здесь так
+//     // return this
+//     // скрытая переменная
+//     const age = 33
+//     // метод можно положить внутрь объекта и он не будте леать в пртотипе
+//     this.sayHellow = function(){
+//         console.log('Привет меня зовут ' + this.name);
+//         console.log('Мне  ' + age + ' года');
 //  }
 // }
+// // Онас всегда вызывается с помощью new,
+// // сначла создается пустой объект
+// // Моно создать метод в протоипе
+// // мы эокномим память при таком спобое
+// // Person.prototype.sayHellow = function(){
+// //     console.log('Привет меня зовут ' + this.name);
+// // }
 
-// obj.someFunc()
+//  const person0 = new Person
+//  const person1 = new Person('Vlad')
+//  const person2 = new Person('Alex')
+//  const person3 =new Person('Ivan')
 
-// xn,s не писать return можно его получить таким образом
-const func = () =>({
-    name:'Alex',
-    city:'Minsk'
-})
+//  const person4 = {
+//     name:'Annd'
+//  }
 
-console.log(func());
+//  console.log(person0);
+//  console.log(person1);
+//  console.log(person2);
+//  console.log(person3);
+//  console.log(person4);
+
+//  person1.sayHellow()
+
+// //  мы можем обратиться к переменой в не объекта но получим undefined
+// console.log(person1.age);
+
+
+
+
+const Person = function (name) {
+     this.name = name
+}
+
+Person.prototype.sayHellow = function(){
+    console.log('Привет меня зовут ' + this.name);
+}
+
+
+// ЦЕПОЧКА НАСЛЕДОВАНИЯ
+const Student = function (name,role){
+    Person.call(this,name)
+    this.role = role
+}
+//  СВЯЗКА СУЩНОСТЕЙ
+// связвываем прототип студента Student с прототипом персонаPerson
+Student.prototype = Object.create(Person.prototype)
+// создадим констурктор для Student
+Student.prototype.constructor = Student
+
+const newStudent = new Student('Vald', 'student')
+
+console.log(newStudent);
