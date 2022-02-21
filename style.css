@@ -21,3 +21,13 @@ main div {
 .btn {
   margin-top: 50px;
 }
+.imgES6 {
+  width: 300px;
+  height: 200px;
+  background-color: rgb(255, 252, 70);
+  font-size: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
